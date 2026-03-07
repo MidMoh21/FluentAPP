@@ -1,0 +1,7 @@
+{
+  "name": "FluentFlow AI Coach",
+  "description": "An advanced American English speaking coach that analyzes your pronunciation, grammar, and fluency using voice interaction.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
