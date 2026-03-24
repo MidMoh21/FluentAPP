@@ -12,7 +12,7 @@
 
 *Practice speaking. Get real feedback. Level up — all in your browser.*
 
-[🚀 Try It Live](#) · [📖 Docs](#architecture) · [🐛 Report Bug](https://github.com/MidMoh21/FluentAPP/issues) · [✨ Request Feature](https://github.com/MidMoh21/FluentAPP/issues)
+[🚀 Try It Live](https://fluent-app.vercel.app) · [📖 Docs](#architecture) · [🐛 Report Bug](https://github.com/MidMoh21/FluentAPP/issues) · [✨ Request Feature](https://github.com/MidMoh21/FluentAPP/issues)
 
 </div>
 
