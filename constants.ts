@@ -14,6 +14,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   accent: 'American',
   nativeLanguage: 'Arabic',
   ttsEnabled: true,
+  apiKey: '',
 };
 
 export const SCORING_WEIGHTS: Record<EnglishLevel, ScoringWeights> = {

@@ -45,8 +45,9 @@ const Settings: React.FC<SettingsProps> = ({
     // Basic validation for first visit
     if (isFirstVisit) {
       const newErrors = [];
-      if (!formData.goals.trim()) newErrors.push("Please define your goals.");
-      if (!formData.topics.trim()) newErrors.push("Please add some topics.");
+      if (!formData.apiKey?.trim()) newErrors.push('Please enter your Gemini API key.');
+      if (!formData.goals.trim()) newErrors.push('Please define your goals.');
+      if (!formData.topics.trim()) newErrors.push('Please add some topics.');
       
       if (newErrors.length > 0) {
         setErrors(newErrors);
@@ -87,10 +88,36 @@ const Settings: React.FC<SettingsProps> = ({
           {isFirstVisit && (
             <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-lg p-4 mb-6">
               <p className="text-indigo-200 text-sm leading-relaxed">
-                Before we start, tell me about yourself so I can personalize your training plan immediately.
+                Before we start, add your Gemini API key and tell me about yourself so I can personalize your training.
               </p>
             </div>
           )}
+
+          {/* API Key Section — always visible */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-semibold text-indigo-400 uppercase tracking-wider">Gemini API Key</h3>
+            <input
+              type="password"
+              value={formData.apiKey || ''}
+              onChange={(e) => handleChange('apiKey', e.target.value)}
+              disabled={isApplyingSettings}
+              placeholder="Paste your Gemini API key here..."
+              className={`w-full bg-gray-800 border rounded-lg p-2.5 text-white focus:ring-2 focus:ring-indigo-500 outline-none placeholder-gray-600 font-mono text-sm disabled:opacity-50 ${
+                errors.some(e => e.includes('API')) && !formData.apiKey?.trim() ? 'border-red-500' : 'border-gray-700'
+              }`}
+            />
+            <p className="text-xs text-gray-500">
+              Your key is stored locally in your browser only.{' '}
+              <a
+                href="https://aistudio.google.com/apikey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 underline"
+              >
+                Get a free key here →
+              </a>
+            </p>
+          </div>
           
           {/* Section 1: User Profile */}
           <div className="space-y-4">

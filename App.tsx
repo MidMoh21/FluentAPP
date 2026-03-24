@@ -65,8 +65,8 @@ const App: React.FC = () => {
       setSettings(parsed);
 
       // Check if settings are actually complete (not just exist)
-      // If goals or topics are empty, treat as first visit
-      if (!parsed.goals?.trim() || !parsed.topics?.trim()) {
+      // If goals, topics, or apiKey are empty, treat as first visit
+      if (!parsed.goals?.trim() || !parsed.topics?.trim() || !parsed.apiKey?.trim()) {
         setIsFirstVisit(true);
         setShowSettings(true);
       } else {
@@ -109,7 +109,7 @@ const App: React.FC = () => {
       const startMode = trainingMode;
       const dynamicInstruction = generateSystemInstruction(currentSettings, startMode);
 
-      const responseText = await sendMessageToGemini([], undefined, dynamicInstruction, startMode);
+      const responseText = await sendMessageToGemini([], undefined, dynamicInstruction, startMode, currentSettings.apiKey);
 
       const botMessage: Message = {
         id: Date.now().toString(),
@@ -256,7 +256,8 @@ Be SPECIFIC and reference actual errors/improvements from this session. Analyze 
         historyForApi,
         { text: summaryPrompt },
         summarySystemInstruction,
-        trainingMode
+        trainingMode,
+        settings.apiKey
       );
 
       const botMessage: Message = {
@@ -353,7 +354,8 @@ Be SPECIFIC and reference actual errors/improvements from this session. Analyze 
         previousHistory,
         { text: textToSend },
         dynamicInstruction,
-        trainingMode
+        trainingMode,
+        settings.apiKey
       );
 
       const botMessage: Message = {
@@ -424,7 +426,8 @@ Be SPECIFIC and reference actual errors/improvements from this session. Analyze 
         historyForApi,
         { audio: base64Audio, targetSentence },
         dynamicInstruction,
-        activeMode
+        activeMode,
+        settings.apiKey
       );
 
       // Score Tracking (Only Mode 2)

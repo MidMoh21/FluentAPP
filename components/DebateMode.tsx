@@ -39,7 +39,7 @@ const DebateMode: React.FC<DebateModeProps> = ({ onBack, settings }) => {
 
         try {
             const instruction = generateSystemInstruction(settings, TrainingMode.DEBATE);
-            const response = await sendMessageToGemini([], undefined, instruction, TrainingMode.DEBATE);
+            const response = await sendMessageToGemini([], undefined, instruction, TrainingMode.DEBATE, settings.apiKey);
 
             setMessages([{
                 id: Date.now().toString(),

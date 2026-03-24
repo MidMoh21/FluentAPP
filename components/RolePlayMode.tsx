@@ -60,7 +60,8 @@ const RolePlayMode: React.FC<RolePlayModeProps> = ({ settings, onBack }) => {
                 [],
                 { text: initialInput },
                 systemInstruction,
-                TrainingMode.ROLE_PLAY
+                TrainingMode.ROLE_PLAY,
+                settings.apiKey
             );
 
             const aiMsg: Message = {
@@ -108,7 +109,8 @@ const RolePlayMode: React.FC<RolePlayModeProps> = ({ settings, onBack }) => {
                 history,
                 { text: inputText },
                 systemInstruction,
-                TrainingMode.ROLE_PLAY
+                TrainingMode.ROLE_PLAY,
+                settings.apiKey
             );
 
             const aiMsg: Message = {
@@ -196,7 +198,8 @@ const RolePlayMode: React.FC<RolePlayModeProps> = ({ settings, onBack }) => {
                     history,
                     { audio: base64Audio, mimeType: audioBlob.type || 'audio/webm' },
                     systemInstruction,
-                    TrainingMode.ROLE_PLAY
+                    TrainingMode.ROLE_PLAY,
+                    settings.apiKey
                 );
 
                 const aiMsg: Message = {

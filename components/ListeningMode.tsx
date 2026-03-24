@@ -45,7 +45,8 @@ const ListeningMode: React.FC<ListeningModeProps> = ({ settings, onBack }) => {
                 [],
                 { text: startInput },
                 systemInstruction,
-                TrainingMode.LISTENING
+                TrainingMode.LISTENING,
+                settings.apiKey
             );
 
             // Extract text between markers [TEXT_TO_READ]...[/TEXT_TO_READ]
@@ -98,7 +99,8 @@ const ListeningMode: React.FC<ListeningModeProps> = ({ settings, onBack }) => {
                 historyForApi,
                 { text: readyInput },
                 systemInstruction,
-                TrainingMode.LISTENING
+                TrainingMode.LISTENING,
+                settings.apiKey
             );
 
             setCurrentQuestion(response);
@@ -137,7 +139,8 @@ const ListeningMode: React.FC<ListeningModeProps> = ({ settings, onBack }) => {
                 historyForApi,
                 { text: userAnswer },
                 systemInstruction,
-                TrainingMode.LISTENING
+                TrainingMode.LISTENING,
+                settings.apiKey
             );
 
             const aiMsg: Message = { id: (Date.now() + 1).toString(), role: 'model', text: response };

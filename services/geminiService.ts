@@ -17,10 +17,14 @@ export const sendMessageToGemini = async (
   history: HistoryItem[],
   input: InputData | undefined,
   systemInstruction: string,
-  mode: TrainingMode
+  mode: TrainingMode,
+  userApiKey?: string
 ): Promise<string> => {
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const apiKey = userApiKey || process.env.API_KEY || '';
+  if (!apiKey) throw new Error('No API key provided. Please add your Gemini API key in Settings.');
+
+  const ai = new GoogleGenAI({ apiKey });
 
   // 🎯 ROUTING LOGIC: Select primary model based on mode
   // Mode 2 & 3 use high-reasoning model

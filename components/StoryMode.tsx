@@ -37,7 +37,7 @@ const StoryMode: React.FC<StoryModeProps> = ({ onBack, settings }) => {
         try {
             const instruction = generateSystemInstruction(settings, TrainingMode.STORY);
             // Pass genre in input data so geminiService can inject it
-            const response = await sendMessageToGemini([], { storyGenre: genre }, instruction, TrainingMode.STORY);
+            const response = await sendMessageToGemini([], { storyGenre: genre }, instruction, TrainingMode.STORY, settings.apiKey);
 
             setMessages([{
                 id: Date.now().toString(),

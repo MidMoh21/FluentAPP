@@ -48,6 +48,7 @@ export interface UserSettings {
   accent: AccentType;
   nativeLanguage: string;
   ttsEnabled: boolean;
+  apiKey: string;
 }
 
 export interface SessionRecord {

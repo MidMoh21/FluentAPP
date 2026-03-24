@@ -46,7 +46,7 @@ const VocabPractice: React.FC<VocabPracticeProps> = ({ onBack, settings }) => {
         try {
             const instruction = generateSystemInstruction(settings, TrainingMode.VOCAB_PRACTICE);
             // Pass vocab words to geminiService
-            const response = await sendMessageToGemini([], { vocabWords: targetWords }, instruction, TrainingMode.VOCAB_PRACTICE);
+            const response = await sendMessageToGemini([], { vocabWords: targetWords }, instruction, TrainingMode.VOCAB_PRACTICE, settings.apiKey);
 
             setMessages([{
                 id: Date.now().toString(),
