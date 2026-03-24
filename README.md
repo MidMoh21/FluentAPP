@@ -237,11 +237,22 @@ All scores use: **`FINAL SCORE = 100 − Σ(penalties)`**
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### 🌐 Try it Live (No Setup Required)
+
+> **[https://fluent-app.vercel.app](https://fluent-app.vercel.app)**
+>
+> Just open the link, paste your free Gemini API key in the settings screen, and start speaking.
+> Each user brings their own key — your data never leaves your browser.
+
+---
+
+### 🛠️ Run Locally
+
+#### Prerequisites
 - Node.js 18+
 - A Google Gemini API key — [get one free here](https://aistudio.google.com/apikey)
 
-### Installation
+#### Installation
 
 ```bash
 # Clone the repository
@@ -252,7 +263,7 @@ cd FluentAPP
 npm install
 ```
 
-### Environment Setup
+#### Environment Setup (Local Only)
 
 Create a `.env.local` file in the root directory:
 
@@ -260,9 +271,10 @@ Create a `.env.local` file in the root directory:
 API_KEY=your_gemini_api_key_here
 ```
 
-> ⚠️ Never commit your API key. `.env.local` is already in `.gitignore`.
+> ⚠️ For the **hosted version**, no `.env` is needed — users enter their API key directly in the app UI.
+> For **local development**, you can use either the `.env.local` file or the in-app key field.
 
-### Run Development Server
+#### Run Development Server
 
 ```bash
 npm run dev
@@ -270,7 +282,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Build for Production
+#### Build for Production
 
 ```bash
 npm run build
